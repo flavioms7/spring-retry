@@ -13,7 +13,7 @@ public class RetryComponent {
     @Retryable(value = RetryException.class, maxAttempts = 6, backoff = @Backoff(delay = 1000))
     public void doRetry(int number) {
 
-        var numberRand= randomNumber();
+        var numberRand = randomNumber();
 
         if (number == numberRand) {
             System.out.println("SUCCESS BECAUSE: " + number + " equal " + numberRand);
@@ -24,16 +24,15 @@ public class RetryComponent {
     }
 
     @Recover
-    private void doRecovery(RetryException e, int number){
-
+    private void doRecovery(RetryException e, int number) {
 
         System.out.println("No random number match with number " + number + "\n");
         throw new NumberNotFoundException("No random number match with number " + number);
     }
 
-    private int randomNumber(){
+    private int randomNumber() {
         int min = 1;
         int max = 10;
-        return (int)Math.floor(Math.random()*(max-min+1)+min);
+        return (int) Math.floor(Math.random() * (max - min + 1) + min);
     }
 }

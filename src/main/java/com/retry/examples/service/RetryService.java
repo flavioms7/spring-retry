@@ -12,16 +12,13 @@ public class RetryService {
     @Autowired
     RetryComponent retryComponent;
 
-    public String initRetry(int number) throws RetryException {
+    public String initRetry(int number) {
 
         try {
             retryComponent.doRetry(number);
             return "Good Luck!";
-        }catch (NumberNotFoundException err){
+        } catch (NumberNotFoundException | RetryException err){
             return "Bad Luck! | Reason: " + err;
-        }catch (RetryException err) {
-            return "Bad Luck! | Reason: " + err;
-
         }
     }
 }

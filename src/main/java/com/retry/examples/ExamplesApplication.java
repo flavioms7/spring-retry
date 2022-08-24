@@ -5,6 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.retry.annotation.Retryable;
+import org.springframework.retry.backoff.FixedBackOffPolicy;
+import org.springframework.retry.policy.SimpleRetryPolicy;
+import org.springframework.retry.support.RetryTemplate;
 
 @SpringBootApplication
 @EnableRetry
