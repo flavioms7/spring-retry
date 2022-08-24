@@ -12,7 +12,7 @@ public class RetryService {
     @Autowired
     RetryComponent retryComponent;
 
-    public String initRetry(int number) {
+    public String retryOperation(int number) {
 
         try {
             retryComponent.doRetry(number);

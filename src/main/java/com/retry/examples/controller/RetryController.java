@@ -16,6 +16,6 @@ public class RetryController {
     @GetMapping("/retry")
     public ResponseEntity retry(@RequestParam int number) {
 
-        return ResponseEntity.ok().body(retryService.initRetry(number));
+        return ResponseEntity.ok().body(retryService.retryOperation(number));
     }
 }
